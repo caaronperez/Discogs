@@ -13,7 +13,7 @@ https://github.com/user-attachments/assets/3be767e2-d2a4-48b0-8f58-37491ea98fd1
 
 ## Setup and Run
 1. Clone the repository:
-   - `git clone <your-repo-url>`
+   - `git clone https://github.com/caaronperez/Discogs`
 2. Open the project in Xcode.
 3. Build and run the `Discogs` scheme on an iOS simulator/device.
 4. **Optional**: Add your Discogs `consumerKey` and `consumerSecret` in `Networking/APIConfig.swift` if you have you own app.
