@@ -110,6 +110,7 @@
 				403D24EB2F52A1D9009BBBFB /* Sources */,
 				403D24EC2F52A1D9009BBBFB /* Frameworks */,
 				403D24ED2F52A1D9009BBBFB /* Resources */,
+				4010CC502F5307A700C2441F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -238,6 +239,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4010CC502F5307A700C2441F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/newOutputFile",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint >\/dev\/null 2>\&1; then\n  if [ -r \"$SRCROOT/Discogs/.swiftlint.yml\" ]; then\n    swiftlint lint --config \"$SRCROOT/Discogs/.swiftlint.yml\" 2>\&1 | sed \"s#^error:#warning:#\"\n  else\n    echo \"warning: SwiftLint config is not readable in script sandbox. Skipping.\"\n  fi\nelse\n  echo \"warning: SwiftLint not installed. Install via Homebrew: brew install swiftlint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		403D24EB2F52A1D9009BBBFB /* Sources */ = {

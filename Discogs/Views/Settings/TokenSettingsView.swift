@@ -97,6 +97,13 @@ struct TokenSettingsView: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
+
+                Section {
+                    Text(viewModel.ui.creditsFooterText)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
             .scrollContentBackground(.hidden)
             .appThemeBackground()

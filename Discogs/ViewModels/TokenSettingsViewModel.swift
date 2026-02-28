@@ -35,6 +35,7 @@ final class TokenSettingsViewModel: ObservableObject {
 
         let navigationTitle = "Discogs Account"
         let doneButtonTitle = "Done"
+        let creditsFooterText = "Created by Cristian Perez for CLARA interview in 2026."
 
         let disconnectedOAuthMessage = "Disconnected OAuth session."
         let emptyTokenMessage = "Token cannot be empty. Use Clear Token to remove it."
