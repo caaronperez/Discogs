@@ -257,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if command -v swiftlint >\/dev\/null 2>\&1; then\n  if [ -r \"$SRCROOT/Discogs/.swiftlint.yml\" ]; then\n    swiftlint lint --config \"$SRCROOT/Discogs/.swiftlint.yml\" 2>\&1 | sed \"s#^error:#warning:#\"\n  else\n    echo \"warning: SwiftLint config is not readable in script sandbox. Skipping.\"\n  fi\nelse\n  echo \"warning: SwiftLint not installed. Install via Homebrew: brew install swiftlint\"\nfi\n";
+			shellScript = "if command -v swiftlint >/dev/null 2>&1; then\n  if [ -r \"$SRCROOT/Discogs/.swiftlint.yml\" ]; then\n    swiftlint lint --config \"$SRCROOT/Discogs/.swiftlint.yml\" 2>&1 | sed \"s#^error:#warning:#\"\n  else\n    echo \"warning: SwiftLint config is not readable in script sandbox. Skipping.\"\n  fi\nelse\n  echo \"warning: SwiftLint not installed. Install via Homebrew: brew install swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

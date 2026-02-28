@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct DiscogsApp: App {
+    @AppStorage(APIConfig.appearanceUserDefaultsKey) private var appearanceModeRawValue = AppAppearanceMode.dark.rawValue
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.dark)
+                .preferredColorScheme(selectedAppearanceMode.colorScheme)
         }
+    }
+
+    private var selectedAppearanceMode: AppAppearanceMode {
+        AppAppearanceMode(rawValue: appearanceModeRawValue) ?? .dark
     }
 }

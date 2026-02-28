@@ -33,6 +33,12 @@ final class TokenSettingsViewModel: ObservableObject {
         let clearTokenButtonTitle = "Clear Token"
         let personalTokenHelpText = "If OAuth is connected, OAuth credentials are used first. Personal token is used as a fallback."
 
+        let appearanceSectionTitle = "Appearance"
+        let appearancePickerTitle = "App Theme"
+        let appearanceDarkOptionTitle = "Dark"
+        let appearanceLightOptionTitle = "Light"
+        let appearanceSystemOptionTitle = "System"
+
         let navigationTitle = "Discogs Account"
         let doneButtonTitle = "Done"
         let creditsFooterText = "Created by Cristian Perez for CLARA interview in 2026."
@@ -60,5 +66,16 @@ final class TokenSettingsViewModel: ObservableObject {
 
     func isPositiveStatus(_ value: String) -> Bool {
         value == ui.oauthConnectedValue || value == ui.tokenConfiguredValue
+    }
+
+    func appearanceTitle(for mode: AppAppearanceMode) -> String {
+        switch mode {
+        case .dark:
+            return ui.appearanceDarkOptionTitle
+        case .light:
+            return ui.appearanceLightOptionTitle
+        case .system:
+            return ui.appearanceSystemOptionTitle
+        }
     }
 }

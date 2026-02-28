@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Environment(\.colorScheme) private var colorScheme
     @StateObject private var viewModel: SearchViewModel
     @StateObject private var toastManager: ToastManager
 
@@ -109,7 +110,7 @@ struct SearchView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(viewModel.ui.emptyHeaderTitle)
                 .font(.largeTitle.bold())
-                .foregroundStyle(.white)
+                .foregroundStyle(AppThemeText.primary(for: colorScheme))
                 .lineLimit(nil)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -117,14 +118,13 @@ struct SearchView: View {
 
             Text(viewModel.ui.emptyHeaderSubtitle)
                 .font(.subheadline)
-                .foregroundStyle(.white.opacity(0.86))
+                .foregroundStyle(AppThemeText.secondary(for: colorScheme))
                 .padding(.bottom)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .zIndex(20)
-        .padding(.vertical, 8)
         .padding(.horizontal)
-        .padding(.top, 6)
+        .padding(.top, 56)
     }
 
     private var emptyState: some View {
@@ -138,6 +138,7 @@ struct SearchView: View {
                     rowCount: 8,
                     bottomFadeHeight: 50
                 )
+                .padding(.top, -56)
                 .opacity(0.58)
                 .frame(maxWidth: .infinity)
                 .frame(height: 500)
@@ -145,11 +146,11 @@ struct SearchView: View {
 
                 Text(viewModel.ui.emptyPrompt)
                     .font(.headline)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(AppThemeText.primary(for: colorScheme))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
                     .background(.ultraThinMaterial, in: Capsule())
-                    .padding(.bottom, 26)
+                    .padding(.bottom)
             }
             .frame(maxWidth: .infinity)
 
@@ -157,6 +158,7 @@ struct SearchView: View {
                 Button(viewModel.ui.connectButtonTitle) {
                     isTokenSettingsPresented = true
                 }
+                .padding(.bottom, 32)
                 .glassToolbarStyle()
             }
 
@@ -171,6 +173,7 @@ struct SearchView: View {
                 NavigationLink(value: artist) {
                     ArtistRowView(artist: artist, ui: viewModel.ui)
                 }
+                .listRowBackground(Color.clear)
                 .task {
                     await viewModel.loadMoreIfNeeded(currentItem: artist)
                 }
@@ -182,6 +185,7 @@ struct SearchView: View {
                     ProgressView()
                     Spacer()
                 }
+                .listRowBackground(Color.clear)
             }
         }
         .listStyle(.plain)

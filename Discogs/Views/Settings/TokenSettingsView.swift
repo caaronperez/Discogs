@@ -13,6 +13,7 @@ struct TokenSettingsView: View {
 
     @StateObject private var viewModel = TokenSettingsViewModel()
     @AppStorage(APIConfig.tokenUserDefaultsKey) private var personalToken = ""
+    @AppStorage(APIConfig.appearanceUserDefaultsKey) private var appearanceModeRawValue = AppAppearanceMode.dark.rawValue
 
     @State private var personalTokenInput = ""
     @State private var verifierCode = ""
@@ -98,6 +99,15 @@ struct TokenSettingsView: View {
                         .foregroundStyle(.secondary)
                 }
 
+                Section(viewModel.ui.appearanceSectionTitle) {
+                    Picker(viewModel.ui.appearancePickerTitle, selection: $appearanceModeRawValue) {
+                        ForEach(AppAppearanceMode.allCases) { mode in
+                            Text(viewModel.appearanceTitle(for: mode)).tag(mode.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+
                 Section {
                     Text(viewModel.ui.creditsFooterText)
                         .font(.footnote)
@@ -118,6 +128,9 @@ struct TokenSettingsView: View {
             .onAppear {
                 personalTokenInput = personalToken
                 isOAuthAuthenticated = authManager.isAuthenticated
+                if AppAppearanceMode(rawValue: appearanceModeRawValue) == nil {
+                    appearanceModeRawValue = AppAppearanceMode.dark.rawValue
+                }
             }
         }
     }

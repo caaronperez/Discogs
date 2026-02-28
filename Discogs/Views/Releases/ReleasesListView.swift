@@ -29,6 +29,7 @@ struct ReleasesListView: View {
         List {
             ForEach(viewModel.filteredAndSortedReleases) { release in
                 ReleaseRow(release: release, viewModel: viewModel)
+                    .listRowBackground(Color.clear)
                     .task {
                         await viewModel.loadNextPageIfNeeded(currentItem: release)
                     }
@@ -40,6 +41,7 @@ struct ReleasesListView: View {
                     ProgressView()
                     Spacer()
                 }
+                .listRowBackground(Color.clear)
             }
         }
         .listStyle(.plain)
@@ -54,7 +56,6 @@ struct ReleasesListView: View {
                 } label: {
                     Label(viewModel.ui.filtersButtonTitle, systemImage: viewModel.ui.filtersButtonSystemImage)
                 }
-                .glassToolbarStyle()
             }
         }
         .safeAreaInset(edge: .bottom) {

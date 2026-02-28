@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingLaunchSplash = true
+
     var body: some View {
-        SearchView()
+        ZStack {
+            SearchView()
+                .opacity(isShowingLaunchSplash ? 0 : 1)
+
+            if isShowingLaunchSplash {
+                LaunchSplashView {
+                    withAnimation(.easeOut(duration: 0.25)) {
+                        isShowingLaunchSplash = false
+                    }
+                }
+                .transition(.opacity)
+            }
+        }
     }
 }
 

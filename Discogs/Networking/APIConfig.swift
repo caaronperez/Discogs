@@ -12,6 +12,7 @@ struct APIConfig {
     static let baseURL = URL(string: "https://api.discogs.com")
     static let perPage = 30
     static let tokenUserDefaultsKey = "discogsToken"
+    static let appearanceUserDefaultsKey = "discogsAppearanceMode"
     static let userAgent = "DiscogsExplorer/1.0 +https://github.com/example/discogs-explorer"
 
     static let consumerKey = "VdynVFuDRrtbeaZCrOnc"
