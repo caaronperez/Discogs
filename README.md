@@ -2,7 +2,15 @@
 
 Discogs Explorer is an iOS SwiftUI app built with MVVM that searches artists through the Discogs API, shows artist details (including band members), and navigates artist releases with sorting and filtering.
 
-## Project Structure
+
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-02-28 at 05 37 45" src="https://github.com/user-attachments/assets/bf67172d-a8f3-43cd-94fd-cda87469b4bb" />
+
+
+
+https://github.com/user-attachments/assets/3be767e2-d2a4-48b0-8f58-37491ea98fd1
+
+
+## Project Structure - This map has been automatically generated
 - `Networking/`
   - `APIConfig.swift`
   - `HTTPClient.swift`
@@ -45,7 +53,7 @@ Discogs Explorer is an iOS SwiftUI app built with MVVM that searches artists thr
    - `git clone <your-repo-url>`
 2. Open the project in Xcode.
 3. Build and run the `Discogs` scheme on an iOS simulator/device.
-4. Add your Discogs `consumerKey` and `consumerSecret` in `Networking/APIConfig.swift`.
+4. **Optional**: Add your Discogs `consumerKey` and `consumerSecret` in `Networking/APIConfig.swift` if you have you own app.
 5. Run the app, open **Discogs Account**, tap **Connect with Discogs**, authorize in Safari, and paste the verifier code to complete sign in.
 
 Discogs API docs: https://www.discogs.com/developers
@@ -53,8 +61,6 @@ Discogs API docs: https://www.discogs.com/developers
 ## SwiftLint Setup
 1. Install SwiftLint:
    - Homebrew: `brew install swiftlint`
-2. In Xcode target Build Phases, add a **Run Script Phase** and use:
-   - `"$SRCROOT/Scripts/run-swiftlint.sh"`
 3. Keep `.swiftlint.yml` at project root.
 
 ### Interpreting SwiftLint Results
