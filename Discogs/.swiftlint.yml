@@ -1,0 +1,42 @@
+# SwiftLint configuration for Discogs
+
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - file_length
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - sorted_imports
+  - unavailable_function
+  - unowned_variable_capture
+
+line_length:
+  warning: 140
+  error: 200
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - id
+    - vm
+    - ui
+    - x
+    - y
+
+disabled_rules:
+  - trailing_whitespace
+
+included:
+  - Networking
+  - Utilities
+  - ViewModels
+  - Views
+  - ContentView.swift
+  - ../DiscogsTests
+
+excluded:
+  - Scripts
+  - Package.swift
+
+reporter: "xcode"
